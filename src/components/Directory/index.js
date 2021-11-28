@@ -76,7 +76,7 @@ const Directory = (props) => {
           <Box pt={"5px"}>
             <Grid templateColumns="repeat(2, 1fr)" gap={2}>
               {listItem.map((item, index) => (
-                <Link key={index} pos={"relative"}>
+                <Link href="/search" key={index} pos={"relative"}>
                   <div className="Directory-container"></div>
                   <img src={item.img} alt="PREMIUM" />
                   <Flex
@@ -132,6 +132,7 @@ const Directory = (props) => {
               {listItem2.map((item, index) => (
                 <Box>
                   <Link
+                    href="/search"
                     onMouseEnter={() => onChange(`img-${index}`, item.img2)}
                     onMouseLeave={() => onChange2(`img-${index}`, item.img)}
                   >

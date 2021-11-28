@@ -76,7 +76,7 @@ const arrimg = [
 
 const ProductResults = ({}) => {
   return (
-    <div className="ProductResults">
+    <div className="productResults">
       <div className="wrap">
         <Box zIndex={1} w={"100%"} bg={"#efefef"} p={0}>
           <Container
@@ -90,7 +90,8 @@ const ProductResults = ({}) => {
             <Link href="/" marginLeft="13px" marginRight="21px" fontSize="18px">
               <IoMdArrowBack />
             </Link>
-            <Link href="/">Trang chủ</Link>&nbsp;/&nbsp;<Link>Danh mục</Link>
+            <Link href="/">Trang chủ</Link>&nbsp;/&nbsp;
+            <Link href="/search">Danh mục</Link>
           </Container>
         </Box>
         <Container paddingTop="40px" maxW="container.xl" minHeight="70vh">
@@ -122,11 +123,12 @@ const ProductResults = ({}) => {
               <Grid templateColumns="repeat(3, 1fr)" gap={4}>
                 {arrimg.map((item, index) => (
                   <Box>
-                    <Link>
+                    <Link href="/detail">
                       <img src={item.img} alt="hot deal" />
                     </Link>
                     <Box textAlign="center" mt={17.34}>
                       <Link
+                        href="/detail"
                         fontWeight="400"
                         color="#000"
                         fontSize="16px"

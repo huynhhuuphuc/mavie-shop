@@ -10,8 +10,10 @@ import MainLayout from "./layouts/MainLayout";
 
 // pages
 import Homepage from "./pages/Homepage";
-// import Search from "./pages/Search";
+import ProductDetails from "./pages/ProductDetails";
 import ProductList from "./pages/ProductList";
+import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
 
 import "./default.scss";
 
@@ -30,11 +32,34 @@ function App({ Component }) {
             )}
           />
           <Route
-            exact
             path="/search"
             render={() => (
               <MainLayout>
                 <ProductList />
+              </MainLayout>
+            )}
+          />
+          <Route
+            path="/detail"
+            render={() => (
+              <MainLayout>
+                <ProductDetails />
+              </MainLayout>
+            )}
+          />
+          <Route
+            path="/cart"
+            render={() => (
+              <MainLayout>
+                <Cart />
+              </MainLayout>
+            )}
+          />
+          <Route
+            path="/payment"
+            render={() => (
+              <MainLayout>
+                <Payment />
               </MainLayout>
             )}
           />

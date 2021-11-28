@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Box, Flex, Heading, Link, Icon } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, useDisclosure } from "@chakra-ui/react";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaRegMoon } from "react-icons/fa";
-import { BsLightbulb } from "react-icons/bs";
-import { useColorMode } from "@chakra-ui/color-mode";
+// import { FaRegMoon } from "react-icons/fa";
+// import { BsLightbulb } from "react-icons/bs";
+// import { useColorMode } from "@chakra-ui/color-mode";
+import ModalSearch from "../Modal Search";
 import "./styles.scss";
 
 const arrLink = [
@@ -44,7 +45,9 @@ const arrLink = [
 
 const Header = (props) => {
   const [listLink, setListLink] = useState(arrLink);
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = React.useRef();
   return (
     <header className="header">
       <Box pos={"fixed"} zIndex={1} w={"100%"} bg={"#494a48"} p={15}>
@@ -84,7 +87,7 @@ const Header = (props) => {
             ))}
             <ul style={{ display: "flex" }}>
               <li>
-                <Box cursor="pointer">
+                <Box cursor="pointer" onClick={onOpen}>
                   <BsSearch />
                 </Box>
               </li>
@@ -92,15 +95,18 @@ const Header = (props) => {
                 <AiOutlineShoppingCart fontSize={"2rem"} />
                 <span>3</span>
               </li>
-              <li onClick={toggleColorMode}>
+              {/* <li onClick={toggleColorMode}>
                 <Box cursor="pointer">
                   {colorMode == "light" ? <BsLightbulb /> : <FaRegMoon />}
                 </Box>
-              </li>
+              </li> */}
             </ul>
           </Box>
         </Flex>
       </Box>
+      {isOpen && (
+        <ModalSearch isOpen={isOpen} onClose={onClose} finalRef={finalRef} />
+      )}
     </header>
   );
 };
