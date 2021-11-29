@@ -75,7 +75,7 @@ const Header = (props) => {
                 <li>
                   <Link
                     key={index}
-                    href="/search"
+                    href={"/search/" + item.link}
                     style={{
                       textDecoration: "none",
                     }}
